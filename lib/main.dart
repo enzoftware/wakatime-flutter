@@ -11,8 +11,8 @@ class MyApp extends StatelessWidget {
     final _u =  WakaTimeApi().getUserInformation();
     _u.then((user){
       final User u = user;
+      print(u.email);
     });
-    print("54dwa54da5w4d5a4dwdadwa4a");
     return MaterialApp(
       title: 'WakaTime',
       theme: ThemeData(
