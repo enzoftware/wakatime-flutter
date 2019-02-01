@@ -1,6 +1,12 @@
-# wakatime_client
+<div align="center">
 
-A new Flutter project.
+  <img src="assets/logo.png" width="195"/>
+
+  # WakaTime Client
+
+</div>
+
+WakaTime client app for Android & iOS made with Flutter.
 
 ## Getting Started
 
