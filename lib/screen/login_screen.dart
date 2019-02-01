@@ -26,23 +26,23 @@ class LoginScreenState extends State<LoginScreen>{
         ),
         bottomNavigationBar:BottomNavigationBar(
           currentIndex: _cIndex,
-          type: BottomNavigationBarType.shifting ,
+          type: BottomNavigationBarType.fixed ,
           items: [
             BottomNavigationBarItem(
-                icon: Icon(Icons.ac_unit,color: Color.fromARGB(255, 0, 0, 0)),
-                title: new Text('')
+                icon: Icon(Icons.language,color: Color.fromARGB(255, 0, 0, 0)),
+                title: Text('Languages')
             ),
             BottomNavigationBarItem(
                 icon: Icon(Icons.assistant_photo,color: Color.fromARGB(255, 0, 0, 0)),
-                title: new Text('')
+                title: Text('Goals')
             ),
             BottomNavigationBarItem(
                 icon: Icon(Icons.access_time,color: Color.fromARGB(255, 0, 0, 0)),
-                title: new Text('')
+                title: Text('Stats')
             ),
             BottomNavigationBarItem(
                 icon: Icon(Icons.perm_identity,color: Color.fromARGB(255, 0, 0, 0)),
-                title: new Text('')
+                title: Text('Profile')
             )
           ],
           onTap: (index){
