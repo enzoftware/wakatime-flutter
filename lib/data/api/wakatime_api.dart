@@ -17,7 +17,11 @@ class WakaTimeApi {
       }
     );
     final responseJson = json.decode(response.body);
-    return User.fromJson(responseJson[_userJsonKey]);
+    return _convert(responseJson[_userJsonKey]);
+  }
+
+  User _convert(Map userJson) {
+    return User.fromJson(userJson);
   }
 
 }

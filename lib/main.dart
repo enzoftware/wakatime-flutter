@@ -6,14 +6,11 @@ import 'package:wakatime_client/data/model/user.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-
-  final wakatimeApi = WakaTimeApi();
-
   @override
   Widget build(BuildContext context) {
-    final _u = wakatimeApi.getUserInformation();
+    final _u =  WakaTimeApi().getUserInformation();
     _u.then((user){
-      print(user.id);
+      final User u = user;
     });
     print("54dwa54da5w4d5a4dwdadwa4a");
     return MaterialApp(
