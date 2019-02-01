@@ -25,7 +25,7 @@ class User {
   final String website;
   final String id;
 
-  User.fromJson(Map jsonMap):
+  User.fromJson(Map<String, dynamic> jsonMap):
         id =  valueOrDefaultValue(jsonMap['id']),
         website =  valueOrDefaultValue(jsonMap['website']),
         username =  valueOrDefaultValue(jsonMap['username']),
