@@ -12,7 +12,6 @@ class Tabs extends StatefulWidget {
 }
 
 class _TabsState extends State<Tabs> {
-
   PageController _tabController;
   String _titleApp = "";
   int _tab = 0;
@@ -25,7 +24,8 @@ class _TabsState extends State<Tabs> {
         title: Text(
           _titleApp,
           style: TextStyle(
-            fontSize: Theme
+            fontSize:
+            Theme
                 .of(context)
                 .platform == TargetPlatform.iOS ? 17 : 20,
           ),
@@ -48,17 +48,32 @@ class _TabsState extends State<Tabs> {
 
       bottomNavigationBar: Theme
           .of(context)
-          .platform == TargetPlatform.iOS ?
+          .platform == TargetPlatform.iOS
+          ?
       // FOR iOS PLATFORM
       CupertinoTabBar(
-          items: null
-      ) :
+        activeColor: Colors.pink,
+        currentIndex: _tab,
+        onTap: onTap,
+        items: tabItems.map((tabItem) {
+          return BottomNavigationBarItem(
+              title: Text(tabItem.title), icon: Icon(tabItem.icon));
+        }).toList(),
+      )
+          :
       // FOR Android PLATFORM
       BottomNavigationBar(
-          items: null
+        currentIndex: _tab,
+        onTap: onTap,
+        items: tabItems.map((tabItem) {
+          return BottomNavigationBarItem(
+              title: Text(tabItem.title), icon: Icon(tabItem.icon));
+        }).toList(),
       ),
     );
   }
+
+  // TODO : TRANSFORM THE ITEMS TO A FUNCTION
 
   @override
   void initState() {
@@ -67,15 +82,39 @@ class _TabsState extends State<Tabs> {
     this._titleApp = tabItems[0].title;
   }
 
-
   @override
   void dispose() {
     super.dispose();
     _tabController.dispose();
   }
 
+  void onTabChanged(int tab) {
+    setState(() {
+      this._tab = tab;
+    });
 
-  void onTabChanged(int value) {
+    switch (tab) {
+      case 0:
+        this._titleApp = tabItems[0].title;
+        break;
 
+      case 1:
+        this._titleApp = tabItems[1].title;
+        break;
+
+      case 2:
+        this._titleApp = tabItems[2].title;
+        break;
+    }
+  }
+
+  Future<List<BottomNavigationBarItem>> getTabItems() async =>
+      tabItems.map((tabItem) {
+        return BottomNavigationBarItem(
+            title: Text(tabItem.title), icon: Icon(tabItem.icon));
+      }).toList();
+
+  void onTap(int value) {
+    _tabController.jumpToPage(value);
   }
 }
