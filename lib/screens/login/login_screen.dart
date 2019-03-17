@@ -1,54 +1,47 @@
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return LoginScreenState();
-  }
-
-}
-
-class LoginScreenState extends State<LoginScreen>{
-  int _cIndex = 0;
-  void _incrementTab(index) {
-    setState(() {
-      _cIndex = index;
-    });
-  }
+class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return MaterialApp(
+      title: "Login Screen",
+      home: Scaffold(
         appBar: AppBar(
           title: Text("WakaTime"),
         ),
         body: Center(
-          child: Text("Welcome to WakaTime"),
+          child: Container(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Text(
+                  "Welcome to WakaTime",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 36,
+                  ),
+                ),
+                Image.asset(
+                  'assets/logo.png',
+                  width: 100,
+                  height: 100,
+                ),
+                TextField(
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: "Insert your api_key"),
+                ),
+              ],
+            ),
+          ),
         ),
-        bottomNavigationBar:BottomNavigationBar(
-          currentIndex: _cIndex,
-          type: BottomNavigationBarType.fixed ,
-          items: [
-            BottomNavigationBarItem(
-                icon: Icon(Icons.language,color: Color.fromARGB(255, 0, 0, 0)),
-                title: Text('Languages')
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.assistant_photo,color: Color.fromARGB(255, 0, 0, 0)),
-                title: Text('Goals')
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.access_time,color: Color.fromARGB(255, 0, 0, 0)),
-                title: Text('Stats')
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.perm_identity,color: Color.fromARGB(255, 0, 0, 0)),
-                title: Text('Profile')
-            )
-          ],
-          onTap: (index){
-            _incrementTab(index);
-          },
-        )
+        floatingActionButton: FloatingActionButton(
+            child: Icon(Icons.help_outline),
+            onPressed: () {
+              print("Pressed");
+            }),
+      ),
     );
   }
 }
