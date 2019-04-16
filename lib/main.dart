@@ -1,35 +1,14 @@
-import 'dart:async';
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:wakatime_client/data/api/wakatime_api.dart';
-import 'package:wakatime_client/data/model/user.dart';
-import 'package:wakatime_client/screens/login/login_screen.dart';
 
-import 'data/api/wakatime_api.dart';
-import 'screens/home/home.dart';
+import 'screens/welcome/welcome_screen.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(WakatimeApp());
 
-class MyApp extends StatelessWidget {
-
-  bool isApiKeyCorrect = false;
+class WakatimeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Future<User> _u = WakaTimeApi().getUserInformation();
-    _u.then(onValue)
-        .catchError(onError);
-    sleep(new Duration(seconds: 5));
-    return isApiKeyCorrect ? WakatimeApp() : LoginScreen();
+    return WelcomeScreen();
   }
 
-  void onError() {
-    isApiKeyCorrect = false;
-  }
-
-  void onValue(User value) {
-    print(value.email);
-    isApiKeyCorrect = true;
-  }
 }

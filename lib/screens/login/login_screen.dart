@@ -15,7 +15,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: <String, WidgetBuilder>{
-        '/home': (BuildContext context) => WakatimeApp(),
+        '/home': (BuildContext context) => HomeScreen(),
       },
       title: "Login Screen",
       home: Builder(
@@ -33,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Padding(
                         padding: const EdgeInsets.all(16),
                         child: Image.asset(
-                          'assets/logohorizontal.png',
+                          'assets/images/logohorizontal.png',
                         ),
                       ),
                       Padding(
