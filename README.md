@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="assets/logo.png" width="195"/>
+  <img src="assets/images/logo.png" width="195"/>
 
   # WakaTime Client
 
