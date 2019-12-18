@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:wakatime_client/authentication/authentication_event.dart';
-import 'package:wakatime_client/authentication/authentication_state.dart';
+import 'package:wakatime_client/features/authentication/authentication_event.dart';
+import 'package:wakatime_client/features/authentication/authentication_state.dart';
 import 'package:wakatime_client/domain/repository/user_repository.dart';
 
 class AuthenticationBloc
